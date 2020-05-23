@@ -56,12 +56,12 @@ steps:
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
 
-- task: GithubRelease@0 
-  displayName: 'Create GitHub Release'      
-  inputs:
-    gitHubConnection: scottmckenzie
-    repositoryName: scottmckenzie/mslearn-tailspin-spacegame-web
-    tagSource: manual
-    tag: $(Build.BuildNumber)      
-    assets: |
-      $(Build.ArtifactStagingDirectory)/Release/*.zip
+  - task: GithubRelease@0 
+    displayName: 'Create GitHub Release'      
+    inputs:
+      gitHubConnection: scottmckenzie
+      repositoryName: scottmckenzie/mslearn-tailspin-spacegame-web
+      tagSource: manual
+      tag: $(Build.BuildNumber)      
+      assets: |
+        $(Build.ArtifactStagingDirectory)/Release/*.zip
