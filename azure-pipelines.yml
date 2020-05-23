@@ -15,8 +15,14 @@ variables:
   buildConfiguration: 'Release'
   wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
   dotnetSdkVersion: '3.1.100'
+  versionTest: '1.0.0.0'
 
 steps:
+- task: FileContentToVariable@2
+  displayName: 'Get version'
+  sourceFile: version.txt
+  variableName: versionTest
+
 - task: UseDotNet@2
   displayName: 'Use .NET Core SDK $(dotnetSdkVersion)'
   inputs:
