@@ -20,8 +20,9 @@ variables:
 steps:
 - task: FileContentToVariable@2
   displayName: 'Get version'
-  sourceFile: version.txt
-  variableName: versionTest
+  inputs:
+    sourceFile: version.txt
+    variableName: versionTest
 
 - task: UseDotNet@2
   displayName: 'Use .NET Core SDK $(dotnetSdkVersion)'
